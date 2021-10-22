@@ -1,0 +1,277 @@
+/*! VARIABLE */
+:root {
+  --primary-color: #fc4b7c;
+  --text-color: #7f6b94;
+  --bg-color: #96ace6;
+} /*! DEFAULT STYLE */
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  color: var(--text-color);
+}
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button,
+input {
+  outline: 0;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+}
+img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+a {
+  text-decoration: none;
+}
+.hidden {
+  display: none;
+}
+.listButton__item.activeButton {
+  color: var(--primary-color) !important;
+}
+.app {
+  width: 100%;
+  max-width: 380px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(00, 00, 00, 0.5);
+  overflow: hidden;
+  position: relative;
+} /*! CUSTOM STYLE */
+.app__frontFace {
+  padding: 30px 12px;
+}
+.app__frontFace .header {
+  text-align: center;
+  position: relative;
+}
+.app__frontFace .header__songName {
+  color: var(--primary-color);
+}
+.app__frontFace .header__songAuthor {
+  margin-top: 5px;
+  opacity: 0.7;
+}
+.app__frontFace .header__logo {
+  width: 40px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.app__frontFace .songImageWrap {
+  width: 300px;
+  margin: 20px auto;
+  padding: 3%;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  box-shadow: 0 0 8px #000;
+}
+.app__frontFace .songImage {
+  padding-top: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+}
+.app__frontFace .control,
+.app__frontFace .listButton,
+.app__frontFace .volume {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.app__frontFace .control__item {
+  background-color: transparent;
+  font-size: 1.8rem;
+  padding: 17px;
+  color: var(--text-color);
+}
+.app__frontFace .control__previous {
+  margin-left: 13%;
+}
+.app__frontFace .control__next {
+  margin-right: 13%;
+}
+.app__frontFace .control__play {
+  min-width: 65px;
+  font-size: 1.9rem;
+  color: #fff;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--primary-color);
+  transition: all ease 0.1s;
+}
+.app__frontFace .control__item:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.app__frontFace .control__play:active {
+  box-shadow: 0 0 6px var(--primary-color);
+  transform: scale(1.05);
+}
+.app__frontFace .volume {
+  margin-top: 30px;
+  padding: 0 24px;
+}
+.app__frontFace .listButton {
+  margin-top: 30px;
+  padding: 0 20px;
+  font-size: 1.3rem;
+}
+.app__frontFace .listButton__like {
+  filter: drop-shadow(0 0 6px var(--primary-color));
+  transition: all ease 0.2s;
+}
+.app__frontFace .listButton__like:hover {
+  transform: scale(1.2);
+}
+.app__frontFace .listButton .listButton__item {
+  padding: 5px;
+  background-color: transparent;
+  color: var(--text-color);
+}
+.app__frontFace .listButton .listButton__item:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+.app__frontFace .progress__range {
+  display: block;
+  margin: 30px auto 0;
+  width: 85%;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #adadad;
+  height: 8px;
+}
+.app__frontFace .progress__range::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 12px;
+  width: 30px;
+  background-color: var(--primary-color);
+  box-shadow: 0 0 3px 1px rgba(00, 00, 00, 0.6);
+  cursor: e-resize;
+}
+.app__frontFace .heartActive {
+  color: var(--primary-color);
+}
+.app__frontFace .listButton__volume-bar {
+  transform: rotateZ(-90deg);
+  position: absolute;
+  bottom: 60px;
+  right: -32px;
+  height: 50px;
+  width: 100px;
+  background-color: red;
+} /*! back face */
+.app__backFace {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.app__backFace .header {
+  padding: 22px 0;
+  position: relative;
+  box-shadow: 0 2px 6px rgba(00, 00, 00, 0.6);
+}
+.app__backFace .header__title {
+  font-size: 1.1rem;
+  text-align: center;
+}
+.app__backFace .header__closeButton {
+  position: absolute;
+  padding: 6px;
+  top: -8px;
+  left: 0;
+  font-size: 1.8rem;
+  background-color: transparent;
+  color: var(--text-color);
+}
+.app__backFace .header__closeButton:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+.app__backFace .songList {
+  list-style-type: none;
+  padding: 16px 12px 0;
+  height: 88%;
+  overflow-y: auto;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.app__backFace .songList::-webkit-scrollbar {
+  background-color: #7f6b9448;
+  border-radius: 8px;
+  width: 5px;
+}
+.app__backFace .songList::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 8px;
+}
+.app__backFace .songList__item {
+  display: flex;
+  justify-content: space-between;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.songList__item.activeSong {
+  color: var(--primary-color);
+}
+.app__backFace .songList__item + .songList__item {
+  border-top: 2px solid #e6e6e6;
+  padding-top: 12px;
+  margin-top: 12px;
+}
+.app__backFace .songList__item-songName {
+  font-size: 1rem;
+}
+.app__backFace .songList__item-author {
+  margin-top: 5px;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+.app__backFace .songList__item-status {
+  display: flex;
+}
+.app__backFace .songList__item-iconIsPlaying {
+  margin-right: 10px;
+}
+.app__backFace .songList__item-iconIsLiked {
+  margin-right: 10px;
+  color: var(--primary-color);
+}
+@keyframes faceUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+@keyframes faceDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
